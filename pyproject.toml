@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "supplychainiq"
+version = "0.1.0"
+description = "End-to-end supply chain data engineering platform"
+requires-python = ">=3.11"
+dependencies = ["pandas>=2.2,<4", "numpy>=1.26,<3"]
+[project.optional-dependencies]
+app = ["streamlit>=1.49,<2", "plotly>=5.24,<7", "python-dotenv>=1.0,<2"]
+test = ["pytest>=8,<10", "ruff>=0.8,<1"]
+snowflake = ["snowflake-connector-python>=3.12,<5", "snowflake-snowpark-python>=1.24,<2", "python-dotenv>=1.0,<2"]
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 110
+target-version = "py311"
